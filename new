@@ -1,0 +1,12 @@
+import cv2
+import numpy
+import os
+#make 120000 random byte
+randomByte = bytearray(os.urandom(120000))
+flatNumpy = numpy.array(randomByte)
+#a gray image 400X300
+grayImage = flatNumpy.reshape(300,400)
+cv2.imwrite('1234.jpg', grayImage)
+#make rgb with 100 400 layer 3
+rgbImage = flatNumpy.reshape(100,400,3)
+cv2.imwrite('1235.jpg',rgbImage)
