@@ -32,3 +32,15 @@ img[200:300,200:300]=my_roi
 print(my_roi)
 
 
+import cv2
+
+video=cv2.VideoCapture('1234.avi')
+fps=video.get(cv2.CAP_PROP_FPS)
+size=(int(video.get(cv2.CAP_PROP_FRAME_WIDTH)),
+      int(video.get(cv2.CAP_PROP_FRAME_HEIGHT)))
+
+videowriter=cv2.VideoWriter('1234.avi',cv2.VideoWriter_fourcc('I','4','2','0'),fps,size)
+success,frame=video.read()
+while success:
+    videowriter.write(frame)
+    success,frame=video.read()
