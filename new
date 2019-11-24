@@ -10,3 +10,25 @@ cv2.imwrite('1234.jpg', grayImage)
 #make rgb with 100 400 layer 3
 rgbImage = flatNumpy.reshape(100,400,3)
 cv2.imwrite('1235.jpg',rgbImage)
+
+
+import cv2
+import numpy as np
+
+img=cv2.imread('1234.jpg')
+print(img.item(150,120,0))
+img.itemset((150,120,0),255)
+print(img.item(150,120,0))
+
+
+
+import cv2
+import numpy as np
+
+img=cv2.imread('123.jpg')
+
+my_roi=img[0:100,0:100]
+img[200:300,200:300]=my_roi
+print(my_roi)
+
+
