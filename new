@@ -44,3 +44,32 @@ success,frame=video.read()
 while success:
     videowriter.write(frame)
     success,frame=video.read()
+    
+ 
+import cv2
+import numpy as np
+
+img=cv2.imread('123.jpg')
+cv2.imshow('jilao',img)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+import cv2
+
+clicked=False;
+def onMouse(event,x,y,flags,param):
+    global clicked;
+    if event==cv2.EVENT_LBUTTONUP:
+        clicked=True;
+
+cameraCapture = cv2.VideoCapture()
+cv2.namedWindow('niu')
+cv2.setMouseCallback('niu',onMouse )
+print('showing')
+success, frame=cameraCapture.read()
+while success and cv2.waitKey(1)==-1 and not clicked:
+    cv2.imshow('niu',frame)
+    success, frame=cameraCapture.read()
+
+cv2.destroyWindow('niu')
+cameraCapture.release()
